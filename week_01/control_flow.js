@@ -7,11 +7,7 @@ var a = {
 var b = {};
 
 for (var city in a) {
-    // console.log(a.city);
-    //country
-    // console.log(city);
-    //city
-    b[a.city] = city;
+    b[a[city]] = city;
 }
 
 // console.log(b);
@@ -29,4 +25,3 @@ for (var city in a) {
 // Then create a new empty object bXX and use a for..in loop to iterate over all of a's properties.
 // Give b properties whose names are the values from a and whose values are the property names from a.
 // The result should be an object that looks like this:
-
