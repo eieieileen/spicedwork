@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+}
+
+header {
+    padding: 8px;
+    border: 1px gray;
+    height: 50px;
+}
+
+#logo {
+    height: 50px;
+    /* width: 110px; */
+    float: left;
+}
+
+#menu-button {
+    height: 50px;
+    /* width: 30px; */
+    float: right;
+}
