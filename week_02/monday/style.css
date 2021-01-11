@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: bisque;
+}
+
+header {
+    text-align: center;
+    font-size: 5px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+}
+
+main {
+    float: left;
+}
+
+aside {
+    float: right;
+}
+
+img {
+    height: 550px;
+}
+
+#octopus {
+    background-color: pink;
+    font-size: 60px;
+    padding: 20px;
+    animation: move 6s alternate infinite;
+}
+
+.vampire {
+    position: fixed;
+    top: 40vh;
+    left: 40vw;
+    font-size: 250px;
+    transition: transform  3s ease-in;
+    z-index: 1;
+}
+
+.vampire:hover {
+    transform: rotate(650) scale(4);
+}
+
+#good {
+    background-color: purple;
+}
+
+.things {
+    background-color: green
+}
+
+div.first-div#quotes {
+    background-color: gold;
+}
+
+section p {
+    border: 2px dotted black;
+}
+
+li.make-blue {
+    background-color: blue;
+    color: white;
+}
+
+.make-blue + li {
+    font-family: "Comic Sans MS";
+}
+
+input[name="lastname"] {
+    background-color: darkturquoise;
+}
+
+img[alt="Cool duck"] {
+    border: 6px solid salmon;
+}
+
+li:last-child{
+    background: black;
+    color: yellow;
+    border: 2px dashed chartreuse;
+}
+
+li:first-child {
+    font-size: 6px;
+}
+
+div:hover, 
+h1:hover {
+    background-color: cyan;
+    border: 2px solid magenta
+}
+
+a:active {
+    background-color: yellow;
+    color: red
+}
+
+a:visited {
+    color: green;
+}
+
+h1:before {
+    content: "🍑";
+    font-size: 30px;
+}
+
+div:after {
+    content: "magical";
+    background-color: white;
+
+}
+
+/* @keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(400px) transform: translateY(400px);
+    }
+    30% {
+        transform: translateX(800px) transform: translateY(-400px)
+    }
+} */
