@@ -1,17 +1,16 @@
 function number(num) {
     if (num <= 0 || NaN) {
-        console.log("ERROR");
+        return "ERROR";
     } else if (num >= 1000000) {
-        console.log(num);
+        return num;
     } else if (num === 1000000) {
-        return(num);
+        return num;
     } else {
         number(num * 10);
     }
 }
 
-number(1880);
-
+number(1888);
 
 // function countdown(num) {
 //     console.log(num);
