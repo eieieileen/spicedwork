@@ -1,0 +1,51 @@
+body {
+    background-color: teal;
+}
+
+.navigation-link {
+    color: hotpink;
+    font-size: 1.5em;
+}
+
+p {
+    color: white;
+    padding: 10px;
+}
+
+/* 1 media query that captures most phones
+1. media query that captures most tablets
+1 media query that captures diviced bigger than a laptop
+ */
+@media screen and (max-width: 720px) {
+    body {
+        background: burlywood;  
+    }
+
+    .navigation-link {
+        color: red;
+        font-size: 2em;
+    }
+
+    p {
+        color: violet;
+    }
+}
+
+/* this media query will run if the users computer is set to darkmode */
+@media (prefers-color-scheme: dark) {
+   body {
+       background-color: black;
+   } 
+}
+
+/* @media (prefers-color-scheme: light) {
+    
+} */
+
+
+
+
+/* Media queries 
+Allow us to write CDD that is only applied to devices of a certain size
+Basically, media queries are CSS that will only appla to phones, tablets and other devices.
+always keep the media queries at the very bottom of our css file*/
