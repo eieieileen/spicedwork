@@ -5,7 +5,7 @@ function getLessThanZero(arr) {
             newArr.push(arr[i]);
         }
     }
-    console.log(newArr);
+    return newArr;
 }
 
 getLessThanZero([1, 2, 3, -7, -4]);
