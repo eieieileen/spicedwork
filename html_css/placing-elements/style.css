@@ -1,45 +1,74 @@
+/* This on any html/css so you have more control */
 * {
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: gray;
+    /* background-color: gray; */
+    /* min-height: 100vw; */
 }
 
 header {
-    padding: 8px;
-    border: 1px gray;
+    padding: 10px;
+    border: 1px solid gray;
     height: 50px;
     background-color: #fff;
+    position: fixed;
+    width: 100%;
 }
 
 #logo {
-    height: 50px;
+    height: 30px;
     float: left;
 }
 
 #menu-button {
-    height: 50px;
+    height: 30px;
     float: right;
 }
 
-/* main {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-} */
-
-#spices {
-    width: 100vw;
-    max-height: 70vh;
-    position: relative;
-    object-fit: cover;
+main {
+    /* width: 100vw; */
+    height: 500px;
+    background-image: url(assets/spices.jpg);
+    background-size: 100vw;
+    /* background-position: bottom; */
 }
 
 footer {
-    background-color: gray;
-    height: 30%;
-    position: absolute;
+    background-color: grey;
+    height: 200px;
     width: 100%;
     bottom: 0px;
+    position: absolute;
+}
+
+.welcome-get-started {
+    /* color: white; */
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* z-index: 1;
+    font-size: 30px;
+    top: 35vh;
+    left: 70vh; */
+}
+
+#welcome {
+    color: white;
+    /* color: white;
+    position: fixed;
+    z-index: 1;
+    font-size: 30px;
+    top: 35vh;
+    left: 70vh; */
+}
+
+#welcome-button {
+    color: orange;
+    background-color: lightgoldenrodyellow;
 }
