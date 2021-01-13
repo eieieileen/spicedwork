@@ -10,4 +10,3 @@ function invertCase(str) {
     console.log(newStr);
 }
 invertCase("aHoewfHOEAF3c");
-
