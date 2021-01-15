@@ -25,3 +25,12 @@ body {
     height: 1.7em;
     font-size: 20px;
 }
+
+a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+}
