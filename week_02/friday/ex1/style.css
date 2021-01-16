@@ -1,0 +1,10 @@
+* {
+    background-color: lavender;
+}
+
+#movingDiv {
+    width: 100px;
+    height: 100px;
+    background-color:lavenderblush;
+    position: absolute;
+}
