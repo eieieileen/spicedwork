@@ -5,7 +5,7 @@
 }
 
 body {
-    /* background-color: gray; */
+    background-color: lightgray;
     /* min-height: 100vw; */
 }
 
@@ -16,6 +16,7 @@ header {
     background-color: #fff;
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 
 #logo {
@@ -31,9 +32,17 @@ header {
 main {
     /* width: 100vw; */
     height: 500px;
-    background-image: url(assets/spices.jpg);
+    /* background-image: url(assets/spices.jpg); */
     background-size: 100vw;
+    /* background-repeat: inherit; */
     /* background-position: bottom; */
+}
+
+#spices {
+    filter: brightness(70%);
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
 }
 
 footer {
@@ -64,13 +73,6 @@ footer {
     color: white;
     font-family: "Times New Roman", Times, serif;
     font-weight: 100;
-
-    /* color: white;
-    position: fixed;
-    z-index: 1;
-    font-size: 30px;
-    top: 35vh;
-    left: 70vh; */
 }
 
 #welcome-button {
@@ -86,11 +88,10 @@ footer {
 }
 
 .cat-drowning {
-    width: 500px;
+    width: 40%;
     height: 200px;
-    background-color: orange;
     float: left;
-    padding: 5px;
+    /* padding: 20px; */
     position: relative;
 }
 
@@ -100,14 +101,25 @@ footer {
     height: 50px;
     margin: 10px;
     margin-bottom: 10px;
+    /* margin-top: 50px; */
+}
+
+.cat-drowning p {
+    margin: 15px;
+}
+
+.cat-drowning h3 {
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    height: 5px; 
 }
 
 .world-greece {
-    width: 500px;
+    width: 40%;
     height: 200px;
     float: right;
-    padding: 5px;
-    background-color: purple;
+    /* padding: 20px; */
     position: relative;
 }
 
@@ -117,4 +129,40 @@ footer {
     height: 50px;
     margin: 10px;
     margin-bottom: 10px;
+}
+
+.world-greece p {
+    margin: 15px;
+}
+
+.world-greece h3 {
+    margin: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    height: 5px;
+}
+
+@media screen and (max-width: 812px) {
+    .world-greece {
+        width: 100%;
+        height: max-content;
+    }
+
+    .cat-drowning {
+        width: 100%;
+        height: max-content;
+    }
+    
+    main {
+        height: 100%;
+    }
+    footer {
+        height: max-content;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: black;
+    }
 }
