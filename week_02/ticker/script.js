@@ -4,6 +4,7 @@
     var initialPosition = headlines.offsetLeft; //1189
     var requestId;
 
+
     console.log("links:", links);
 
     for (var i = 0; i < links.length; i++) {
@@ -14,19 +15,20 @@
 
         links[i].addEventListener("mouseleave", function (event) {
             console.log("event.target mouse leave:", event.target);
-            requestAnimationFrame(moveHeadlines);
+            requestId = requestAnimationFrame(moveHeadlines);
+
         });
     }
     function moveHeadlines() {
         initialPosition--;
 
-        if (initialPosition <= -links[0].offsetWidth) {
+        if (initialPosition <= -1 * links[0].offsetWidth)  {
+            //when (initialPosition <= -links[0].offsetWidth) its not stopping but just getting slower and after holding it for a while going super fast.
             initialPosition += links[0].offsetWidth;
             headlines.appendChild(links[0]);
         }
 
         headlines.style.left = initialPosition + "px";
-        links[0].offsetWidth;
         requestId = requestAnimationFrame(moveHeadlines);
         // console.log(initialPosition);
     }
