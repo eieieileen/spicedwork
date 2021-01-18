@@ -6,12 +6,11 @@
 
 body {
     background-color: lightgray;
-    /* min-height: 100vw; */
+
 }
 
 header {
     padding: 10px;
-    border: 1px solid gray;
     height: 50px;
     background-color: #fff;
     position: fixed;
@@ -25,17 +24,13 @@ header {
 }
 
 #menu-button {
-    height: 30px;
+    height: 35px;
     float: right;
 }
 
 main {
-    /* width: 100vw; */
     height: 500px;
-    /* background-image: url(assets/spices.jpg); */
     background-size: 100vw;
-    /* background-repeat: inherit; */
-    /* background-position: bottom; */
 }
 
 #spices {
@@ -63,10 +58,6 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    /* z-index: 1;
-    font-size: 30px;
-    top: 35vh;
-    left: 70vh; */
 }
 
 #welcome {
@@ -91,8 +82,9 @@ footer {
     width: 40%;
     height: 200px;
     float: left;
-    /* padding: 20px; */
+    padding: 20px;
     position: relative;
+    
 }
 
 .cat-drowning img {
@@ -101,7 +93,6 @@ footer {
     height: 50px;
     margin: 10px;
     margin-bottom: 10px;
-    /* margin-top: 50px; */
 }
 
 .cat-drowning p {
@@ -110,8 +101,8 @@ footer {
 
 .cat-drowning h3 {
     margin: 10px;
-    margin-top: 20px;
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 25px;
     height: 5px; 
 }
 
@@ -119,7 +110,7 @@ footer {
     width: 40%;
     height: 200px;
     float: right;
-    /* padding: 20px; */
+    padding: 20px;
     position: relative;
 }
 
@@ -137,9 +128,81 @@ footer {
 
 .world-greece h3 {
     margin: 10px;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    height: 5px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    height: 5px;  
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+     width: 100%;
+     height: 100%;
+     visibility: hidden;
+}
+
+
+.side-nav {
+    background-color: #fff;
+    height: 100VH;
+    width: 25%;
+    z-index: 3;
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    padding-left: 30px;
+    transition: 2;
+    visibility: hidden;
+    transition-property: transform;
+    transition-duration: 2s;
+    transform: translateX(100%);
+}
+
+.on {
+    transition-property: transform;
+    transform: translateX(0%);
+    visibility: visible;
+    right: 0;
+    transition-duration: 2s;
+    
+    /* top: 0; */
+}
+.side-nav p {
+    float: right;
+    font-size: 20px;
+}
+
+.side-nav div {
+    margin: 20px
+}
+
+#top-link {
+    margin-top: 50px;
+    font-size: 25px;
+    /* text-decoration: none; */
+}
+
+#second-link {
+    font-size: 25px;
+    /* text-decoration: none; */
+}
+
+#third-link {
+    font-size: 25px;
+    /* text-decoration: none; */
+}
+
+#fourth-link {
+    font-size: 25px;
+    /* text-decoration: none; */
+}
+
+#log-out {
+    margin-top: 50px;
+    /* text-decoration: none; */
 }
 
 @media screen and (max-width: 812px) {
