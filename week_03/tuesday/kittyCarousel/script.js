@@ -2,30 +2,58 @@
 (function () {
     var kitties = document.querySelectorAll("#kitties img");
     var currentKitty = 0;
-
-    function moveKitties() {
-        kitties[currentKitty].classList.remove("onscreen");
-        kitties[currentKitty].classList.add("exit");
-        currentKitty++;
-
-        if (kitties[currentKitty] == kitties[4]) {
-            // console.log('currentkitties if statemeent', kitties[currentKitty]);
-            currentKitty = 0;
-        }
-        kitties[currentKitty].classList.add("onscreen");
-
-        setTimeout(moveKitties, 5000);
-    }
-
-    setTimeout(moveKitties, 1000);
+    var dots = document.getElementsByClassName("dot");
+    var timer;
+    var transitionInProgress;
 
     document.addEventListener("transitionend", function (event) {
-        console.log("event target snap er niks van:", event.target);
+        console.log("event target:", event.target);
         if (event.target.classList == "exit") {
             event.target.classList.remove("exit");
         }
+        transitionInProgress = false;
         // console.log("transition ended", event.target);
     });
 
-    //another if statement where we check if the element has the exit class on it if it does, we want to remove the exit class from the element
+    for (var i = 0; i < dots.length; i++) {
+        (function (i) {
+            dots[i].addEventListener("click", function (event) {
+                if (event.target.classList.contains("onscreen")) {
+                    console.log("image is already on screen");
+                    return;
+                }
+                if (transitionInProgress) {
+                    console.log("transition in progress");
+                    return;
+                }
+                console.log("movekitties i:", i);
+                clearTimeout(timer);
+                moveKitties(i);
+            });
+        })(i);
+    }
+
+    function moveKitties(nextKitty) {
+        dots[currentKitty].classList.remove("on");
+        // dots[currentKitty].classList.add("on");
+        kitties[currentKitty].classList.remove("onscreen");
+        kitties[currentKitty].classList.add("exit");
+        transitionInProgress = true;
+
+        if (typeof nextKitty == "undefined") {
+            currentKitty++;
+            if (kitties[currentKitty] == kitties[4]) {
+                currentKitty = 0;
+            }
+        } else {
+            currentKitty = nextKitty;
+        }
+
+        kitties[currentKitty].classList.add("onscreen");
+        dots[currentKitty].classList.add("on");
+        timer = setTimeout(moveKitties, 5000);
+    }
+
+    dots[currentKitty].classList.add("on");
+    setTimeout(moveKitties, 1000);
 })(); //eileens iife
