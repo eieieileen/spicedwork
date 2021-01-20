@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    background-color: palevioletred;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    width: 50%;
+}
+
+#firstBox {
+    background-color: grey;
+    display: grid;
+    width: 200px;
+    height: 200px;
+    margin: 7px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+#firstSmall {
+    height: 100px;
+    width: 100px;
+    background-color: orange;
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+#secondBox {
+    background-color: black;
+    display: grid;
+    width: 200px;
+    height: 200px;
+    margin: 7px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+#secondSmall {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+#thirdBox {
+    background-color: blue;
+    display: grid;
+    width: 200px;
+    height: 200px;
+    margin: 7px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+#thirdSmall {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+#fourthBox {
+    background-color: purple;
+    display: grid;
+    width: 200px;
+    height: 200px;
+    margin: 7px;
+}
+
+#fourthSmall {
+    height: 100px;
+    width: 100px;
+    background-color: pink;
+}
