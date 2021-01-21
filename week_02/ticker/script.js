@@ -6,7 +6,6 @@
 
 
     console.log("links:", links);
-
     for (var i = 0; i < links.length; i++) {
         links[i].addEventListener("mouseenter", function (event) {
             console.log("event.target:", event.target);
@@ -29,6 +28,8 @@
         }
 
         headlines.style.left = initialPosition + "px";
+
+    
         requestId = requestAnimationFrame(moveHeadlines);
         // console.log(initialPosition);
     }
