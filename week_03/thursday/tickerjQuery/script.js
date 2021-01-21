@@ -18,7 +18,7 @@
         }
         initialPositionJQ--;
 
-        headlinesJQ.eq(0).css({ left: initialPositionJQ * "px" });
+        headlinesJQ.eq(0).css({ left: initialPositionJQ + "px" });
         linksJQ.eq(0).offsetWidth;
         requestId = requestAnimationFrame(moveHeadlines);
         // console.log(initialPosition);
