@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    background-color: burlywood;
+}
+
+#board {
+    display: flex;
+    flex-direction: column; 
+}
+
+.column {
+    display: flex; 
+}
+
+.lastColumn
+
+.slot {
+    background-color: darkorange;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.hole {
+    /* background-color: darkslategrey; */
+    height: 80px;
+    width: 80px;
+    transform: translate(-30px, -30px);
+    border: 40px solid blue;
+    border-radius: 50%;
+}
+
+.player1 {
+    background-color: firebrick;
+}
+
+.player2 {
+    background-color: gold;
+}
