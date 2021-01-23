@@ -1,14 +1,24 @@
 * {
-    margin: 0;
-    background-color: burlywood;
+    margin: 0px;
+    padding: 1px;
 }
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
 
 #board {
     display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-top: 25px;
+    
 }
 
 .slot {
-    background-color: darkorange;
+    background-color: black;
     width: 100px;
     height: 100px;
     overflow: hidden;
@@ -19,16 +29,76 @@
     height: 80px;
     width: 80px;
     transform: translate(-30px, -30px);
-    border: 40px solid blue;
+    border: 40px solid #e07a5f;
     border-radius: 50%;
 }
 
-.player1 .hole{
-    background-color: firebrick;
-    
+.player1 .hole {
+    background-color: #cdb4db;
 }
 
 .player2 .hole {
-    background-color: gold;
-
+    background-color: #ffc8dd;
 }
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+    visibility: hidden;
+}
+
+.popUp {
+    width: 300px;
+    height: 220px;
+    z-index:2;
+    background-color: lightgoldenrodyellow;
+    border: 5px solid lightseagreen;
+    color: mediumpurple;
+    
+}
+
+.popUp p,
+h1 {
+    margin: 35px;
+    margin-top: 40px;
+}
+
+.popUp h3 {
+    margin: 35px;
+    margin-top: -25px;
+}
+
+#x {
+    float: right;
+    font-size: 20px;
+    margin: 5px;
+    margin-right: 10px;
+}
+
+button {
+    margin-left: 125px;
+}
+
+#flying {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* position: relative; */
+}
+
+#flyingG {
+    width: 400px;
+    height: 330px;
+    visibility: hidden;
+    transition: 2s ease;
+    transform: translateX(50%);
+}
+   
+
+    
