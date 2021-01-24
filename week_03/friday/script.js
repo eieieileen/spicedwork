@@ -5,7 +5,9 @@ var overlay = $(".overlay");
 var x = $("#x");
 var reset = $("button");
 var flying = $("#flyingG");
-console.log("flying g: ", flying);
+var standing = $("#standing");
+var wheelie = $("#wheelie");
+console.log("wheelie g: ", wheelie);
 
 //1. make a function to switch players:
 function switchPlayer() {
@@ -65,7 +67,18 @@ function checkForVictory(slots) {
             if (count === 4) {
                 console.log("wins", slots);
                 overlay.eq(0).css({ visibility: "visible" });
-                flying.eq(0).css({transform: "translateX(0%)", visibility: "visible"});
+                flying.eq(0).css({
+                    transform: "translateX(0%)",
+                    visibility: "visible",
+                });
+                standing.eq(0).css({
+                    transform: "translateX(-150%)",
+                    visibility: "visible",
+                });
+                wheelie.eq(0).css({
+                    transform: "translateX(150%)",
+                    visibility: "visible",
+                });
                 //wins, visibility modal on visible
                 return true;
             }
@@ -115,7 +128,16 @@ function checkForDiags(slots) {
         ) {
             console.log(currentPlayer + "won");
             overlay.eq(0).css({ visibility: "visible" });
-            flying.eq(0).css({transform: "translateX(0%)", visibility: "visible"});
+            flying
+                .eq(0)
+                .css({ transform: "translateX(0%)", visibility: "visible" });
+            standing
+                .eq(0)
+                .css({ transform: "translateX(-150%)", visibility: "visible" });
+            wheelie.eq(0).css({
+                transform: "translateX(150%)",
+                visibility: "visible",
+            });
 
             //visibility modal visible
 
@@ -134,16 +156,11 @@ x.on("click", function () {
     // console.log("lekka klikke", x); works
     // popUp.eq(0).css({ visibility: "hidden" });
     overlay.eq(0).css({ visibility: "hidden" });
-    
-    
 });
 
 reset.on("click", function () {
     // overlay.eq(0).css({ visibility: "hidden" });
     location.reload();
 });
-
-
-
 
 //animation
