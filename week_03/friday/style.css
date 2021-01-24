@@ -3,6 +3,7 @@
     padding: 1px;
 }
 
+
 h2 {
     font-size: 30px;
     text-align: center;
@@ -21,6 +22,7 @@ h2 {
     justify-content: center;
     align-items: flex-end;
     margin-top: 25px;
+    
 }
 
 .slot {
@@ -66,6 +68,8 @@ h2 {
     background-color: lightgoldenrodyellow;
     border: 5px solid lightseagreen;
     color: mediumpurple;
+    top: 65px;
+    position: fixed;
 }
 
 .popUp p,
@@ -97,21 +101,81 @@ button {
     align-items: center;
 }
 
+#plant1 {
+    width: 175px;
+    height: 300px;
+    position: fixed;
+    right: 165px;
+    bottom: 0px;
+    transform: translateX(30%);
+    visibility: hidden;
+    transition: 2s ease-in-out;
+    z-index: 3;
+}
+
+#plant2 {
+    width: 250px;
+    height: 250px;
+    position: fixed;
+    bottom: 70px;
+    right: 90px;
+    z-index: 3;
+    transition: 3s ease;
+    transform: rotate(190deg);
+    visibility: hidden;
+}
+
 #flyingG {
-    width: 500px;
+    width: 357px;
     height: 400px;
-    /* visibility: hidden; */
+    visibility: hidden;
     transition: 2s ease;
     transform: translateX(135%);
     position: fixed;
-    bottom: 150px;
-    right: -170px;
+    bottom: 250px;
+    right: -15px;
+   
 }
 
 #pic-left {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+#plant3 {
+    height: 300px;
+    position: fixed;
+    left: 18px;
+    bottom: 0px;
+    visibility: hidden;
+    z-index: 3;
+    transition: 3s ease-in-out;
+    transform: translateX(-50%);
+
+}
+
+#plant4 {
+    position: fixed;
+    top: 25px;
+    left: 270px;
+    height: 300px;
+    visibility: hidden;
+    z-index: 3;
+    transition: 3s ease;
+    transform: translateY(100%);
+}
+
+#skateboard {
+    height: 300px;
+    width: 200px;
+    position: fixed;
+    left: 5px;
+    bottom: 350px;
+    transform: rotate(360deg);
+    visibility: hidden;
+    transition: 3s ease-out;
+    z-index: 3;
 }
 
 #wheelie {
@@ -123,6 +187,7 @@ button {
     transition: 3s ease-in;
     transform: translateX(-300px);
     visibility: hidden;
+    z-index: 3;
 }
 
 #standing {
@@ -134,4 +199,5 @@ button {
     /* visibility: hidden; */
     position: fixed;
     bottom: 100px;
+    z-index: 3;
 }

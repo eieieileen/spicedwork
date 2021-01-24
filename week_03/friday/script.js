@@ -7,15 +7,33 @@ var reset = $("button");
 var flying = $("#flyingG");
 var standing = $("#standing");
 var wheelie = $("#wheelie");
-console.log("wheelie g: ", wheelie);
+var plant1 = $("#plant1");
+var skateboard = $("#skateboard");
+var plant2 = $("#plant2");
+var plant3 = $("#plant3");
+var plant4 = $("#plant4");
+var body = $("body");
+console.log("skate g: ", skateboard);
 
 //1. make a function to switch players:
 function switchPlayer() {
     // console.log("switch the player");
     if (currentPlayer === "player1") {
         currentPlayer = "player2";
+        body.eq(0).css({
+            "background-color": "#ffc779",
+            transition: "1s ease-in-out",
+        });
+        
+        //color pink
     } else {
         currentPlayer = "player1";
+        // color yellow
+        body.eq(0).css({
+            "background-color": "#ffe0e9",
+            transition: "1s ease-in-out",
+        });
+
     }
 }
 // console.log("currentPlayer before call", currentPlayer);
@@ -68,7 +86,7 @@ function checkForVictory(slots) {
                 console.log("wins", slots);
                 overlay.eq(0).css({ visibility: "visible" });
                 flying.eq(0).css({
-                    transform: "translateX(0%)",
+                    transform: "translateX(-25%)",
                     visibility: "visible",
                 });
                 standing.eq(0).css({
@@ -77,6 +95,26 @@ function checkForVictory(slots) {
                 });
                 wheelie.eq(0).css({
                     transform: "translateX(150%)",
+                    visibility: "visible",
+                });
+                plant1.eq(0).css({
+                    transform: "translateX(-100%)",
+                    visibility: "visible",
+                });
+                skateboard.eq(0).css({
+                    transform: "rotate(0deg)",
+                    visibility: "visible",
+                });
+                plant2.eq(0).css({
+                    transform: "rotate(0deg)",
+                    visibility: "visible",
+                });
+                plant3.eq(0).css({
+                    transform: "translateX(30%)",
+                    visibility: "visible",
+                });
+                plant4.eq(0).css({
+                    transform: "translateY(10%)",
                     visibility: "visible",
                 });
                 //wins, visibility modal on visible
@@ -128,9 +166,10 @@ function checkForDiags(slots) {
         ) {
             console.log(currentPlayer + "won");
             overlay.eq(0).css({ visibility: "visible" });
-            flying
-                .eq(0)
-                .css({ transform: "translateX(0%)", visibility: "visible" });
+            flying.eq(0).css({
+                transform: "translateX(-25%)",
+                visibility: "visible",
+            });
             standing
                 .eq(0)
                 .css({ transform: "translateX(-150%)", visibility: "visible" });
@@ -138,7 +177,26 @@ function checkForDiags(slots) {
                 transform: "translateX(150%)",
                 visibility: "visible",
             });
-
+            plant1.eq(0).css({
+                transform: "translateX(-100%)",
+                visibility: "visible",
+            });
+            plant2.eq(0).css({
+                transform: "rotate(0deg)",
+                visibility: "visible",
+            });
+            skateboard.eq(0).css({
+                transform: "rotate(0deg)",
+                visibility: "visible",
+            });
+            plant3.eq(0).css({
+                transform: "translateX(30%)",
+                visibility: "visible",
+            });
+            plant4.eq(0).css({
+                transform: "translateY(10%)",
+                visibility: "visible",
+            });
             //visibility modal visible
 
             // console.log("k", diags[j][k]);
