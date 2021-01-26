@@ -117,13 +117,12 @@
     // 6. blur - happens on input field -
     // this just means you've clicked OUT of an input field
     input.on("blur", function () {
-        results.html("");
+        results.hide();
     });
     //5 focus - happens on input field - this just means you've clicked into an input field
-    results.on("focus", function () {
-        searchField.addClass("visible");
+    input.on("focus", function () {
+        results.show();
     });
-  
 })([
     "Afghanistan",
     "Albania",
