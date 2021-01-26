@@ -1,0 +1,15 @@
+* {
+    background-color: #826C7F;
+}
+
+textarea {
+    background-color: #D4B2D8;
+    border: 5px solid #EFCEFA;
+    width: 800px;
+    height: 400px;
+}
+
+button {
+    background-color: #A88FAC;
+    width: 150px;
+}
