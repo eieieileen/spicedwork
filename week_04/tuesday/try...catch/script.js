@@ -28,12 +28,4 @@
     });
 })();
 
-//if(response) {
-//     try {
-//         a = JSON.parse(response);
-//     } catch(e) {
-//         alert(e); // error in the above string (in this case, yes)!
-//     }
-// }
-//met json.pARS AND try catch
-//clickhandler van button
+
