@@ -58,7 +58,7 @@
     //3. So when the user mouses over a country, give that country that .highlight class
     //4. Make sure all the countries that AREN'T being moused over do not have the .highlight class
 
-    var p = $("p");
+    // var p = $("p");
     // console.log("results p", paragraph);
     results.on("mouseover", "p", function () {
         // console.log("hello");
@@ -88,22 +88,42 @@
     //3. if any other county other than the first has the highlight class, we want to remove the highlight from the one
     //that currently has it, and add the highlight class to previous ountry in the list.
     input.on("keydown", function (event) {
+        var countries = $("p");
+        var highlight = $(".highlight");
         if (event.keyCode == 40) {
-            $("p").addClass("highlight");
-            // console.log("keyDown");
-        } else if (event.keyCode == 38) {
-            $("p").addClass("highlight");
-            console.log("keyUp");
-        } if (p.length {
-            
-        })
+            if (!countries.hasClass("highlight")) {
+                countries.eq(0).addClass("highlight"); //eq = Reduce the set of matched elements to the one at the specified index.
+                // console.log("keyDown");
+            } else if (highlight.length == 1) {
+                highlight.removeClass("highlight");
+                highlight.next().addClass("highlight"); //next = Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.
+            }
+        }
+        if (event.keyCode == 38) {
+            if (!countries.hasClass("highlight")) {
+                countries.eq(3).addClass("highlight");
+            } else if (highlight.length == 1) {
+                highlight.removeClass("highlight");
+                highlight.prev().addClass("highlight"); //prev =  Get the immediately preceding sibling of each element in the set of matched elements. If a selector is provided, it retrieves the previous sibling only if it matches that selector.
+            }
+        }
+        if (event.keyCode == 13) {
+            console.log("enter is pressed");
+            searchField.val(highlight.text());
+            results.html("");
+        }
     });
 
-    //6. blur - happens on input field -
-    //this just means you've clicked OUT of an input field
-    // results.on("blur", "p", function () {
-    //     $(this).removeClass(".results");
-    // });
+    // 6. blur - happens on input field -
+    // this just means you've clicked OUT of an input field
+    input.on("blur", function () {
+        results.html("");
+    });
+    //5 focus - happens on input field - this just means you've clicked into an input field
+    results.on("focus", function () {
+        searchField.addClass("visible");
+    });
+  
 })([
     "Afghanistan",
     "Albania",
