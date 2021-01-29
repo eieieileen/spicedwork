@@ -1,8 +1,9 @@
 (function () {
     var nextUrl;
-    var resultsHtml = "";
-
+    var resultsHtml;
+    
     $(".submit-button").on("click", function () {
+        resultsHtml = "";
         // console.log("button was clicked!!!!!!!!!");
         var userInput = $("input").val(); // returns value from inputfield
         var artistOrAlbum = $("select").val();
