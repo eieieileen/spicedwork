@@ -56,6 +56,13 @@
                         "spicedify.herokuapp.com/spotify"
                     );
                 // console.log("nexturl", nextUrl);
+                if (response.next) {
+                    $(".moreButton").css({ visibility: "visible" });
+                    console.log("more button visible");
+                } else {
+                    $(".moreButton").css({ visibility: "hidden" });
+                    console.log("more button visible");
+                }
             },
         });
     });
