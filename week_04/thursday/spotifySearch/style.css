@@ -40,12 +40,14 @@ button {
 }
 
 .results-container {
-   
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
 }
 
 .results-container img {
     width: 300px;
     height: 300px;
-    display: flex;
-    justify-content: space-evenly;
+    
 }
