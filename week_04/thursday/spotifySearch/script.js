@@ -1,7 +1,8 @@
 (function () {
     var nextUrl;
     var resultsHtml;
-    
+    var result;
+
     $(".submit-button").on("click", function () {
         resultsHtml = "";
         // console.log("button was clicked!!!!!!!!!");
@@ -17,7 +18,7 @@
                 query: userInput,
                 type: artistOrAlbum,
             },
-            success: function (response) {
+            success: (result = function (response) {
                 response = response.artists || response.albums;
                 // console.log("response", response.albums.items);
                 // console.log("response:", response);
@@ -58,15 +59,49 @@
                     );
                 // console.log("nexturl", nextUrl);
                 if (response.next) {
-                    $(".moreButton").css({ visibility: "visible" });
-                    console.log("more button visible");
+                    if (location.search.indexOf("?scroll=infinite") > -1) {
+                        infiniteCheck();
+                        //console.log("we want to do infinite scoll now");
+
+                        //First number we need how far we scrolled
+                        console.log(
+                            "how far have we scrolled",
+                            $(window).scrollTop()
+                        );
+
+                        //Second number is the height of the browser
+                        console.log("height of screen", $(window).height());
+
+                        //third number is how high the entire page is
+                        console.log("height of page", $(document).height());
+                    } else {
+                        $(".moreButton").css({ visibility: "visible" });
+                        console.log("more button visible");
+                    }
                 } else {
                     $(".moreButton").css({ visibility: "hidden" });
                     console.log("more button visible");
                 }
-            },
+            }),
         });
     });
+
+    function infiniteCheck() {
+        //console.log("checking infinite");
+        var reachedBottom =
+            $(window).scrollTop() + $(window).height() >=
+            $(document).height() - 500;
+        console.log("reachedBottom: ", reachedBottom);
+        if (reachedBottom) {
+            $.ajax({
+                method: "GET",
+                url: nextUrl,
+                success: result,
+            });
+        } else {
+            setTimeout(infiniteCheck, 500);
+        }
+    }
 
     //more button:
     $(".moreButton").on("click", function () {

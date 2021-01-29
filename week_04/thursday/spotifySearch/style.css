@@ -5,3 +5,7 @@
 .moreButton {
     visibility: hidden;
 }
+
+h1 {
+    display: flex;
+}
