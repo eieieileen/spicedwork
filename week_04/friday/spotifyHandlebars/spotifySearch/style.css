@@ -1,0 +1,53 @@
+* {
+    background-color: lavenderblush;
+}
+
+.moreButton {
+    visibility: hidden;
+}
+
+h1 {
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #50C5B7;
+   
+}
+
+.searchBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+input {
+    margin: 10px;
+    width: 150px;
+    height: 20px;
+}
+
+select {
+    margin: 10px;
+    width: 70px;
+    height: 20px;
+}
+
+button {
+    margin: 10px;
+    width: 70px;
+    height: 20px;
+}
+
+.results-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+
+.results-container img {
+    width: 200px;
+    height: 200px;
+    
+}
