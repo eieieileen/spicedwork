@@ -4,20 +4,29 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
-        <title>Document</title>
+        <title>Handlebars</title>
     </head>
     <body>
-        <h1>🦧Templating is SOOO Cool!🧸</h1>
+        <!-- <h1>🦧Templating is SOOO Cool!🧸</h1> -->
         <div class="authors-info"></div>
-        <script id="authors" type="text/x-handlebars-template">
-        {{authors}}
+        <script id="authorsHandlebars" type="text/x-handlebars-template">
+        {{#authors}}
         <div class="card">
-            <h2>Hello, {{name}}</h2>
-            <h3>Born {{born}}</h3>
+            <h2>Their name is: {{name}}</h2>
+            <img src="{{photo}}" alt="Photos of writers">
+            <h3>They were born in {{born}} and unfortunately died in {{died}}.</h3>
+            <br><h3>Famous books written by them:</h3>
+            <ul>
+                {{#selectedWritings}}
+                <li>{{.}}</li>
+                {{/selectedWritings}}
+            </ul>
+            <p>{{quote}} - {{name}}</p>
+           
         </div>
         
         
-        
+        {{/authors}}
         </script>
         
 
