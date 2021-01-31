@@ -14,6 +14,7 @@
     var nextUrl;
     var resultsHtml;
     var result;
+    var responseHB;
 
     $(".submit-button").on("click", function () {
         resultsHtml = "";
@@ -32,16 +33,9 @@
             },
             success: (result = function (response) {
                 response = response.artists || response.albums;
+                newNextUrl(response.next);
                 // console.log("response", response.albums.items);
                 console.log("response:", response);
-
-                var resultaten = {
-                    items: [
-                        external_urls: "",
-                        name: "",
-                        href: "",
-                    ],
-                };
 
                 for (var i = 0; i < response.items.length; i++) {
                     var defaultImage =
@@ -50,33 +44,40 @@
                         // console.log(response.items[i].images[0].url);
                         defaultImage = response.items[i].images[0].url;
                     }
+
+                    responseHB += {
+                        artistsHB: [
+                            {
+                                name: response.items[i].name,
+                                external_url: link,
+                                image: defaultImage,
+
+                            },
+                        ],
+                    };
                     var link = response.items[i].external_urls.spotify;
 
-                    resultsHtml +=
-                        "<div>" +
-                        "<a href=" +
-                        link +
-                        ">" +
-                        response.items[i].name +
-                        "</a>" +
-                        "</div>" +
-                        "<a href=" +
-                        link +
-                        ">" +
-                        "<img src='" +
-                        defaultImage +
-                        "'/>" +
-                        "</a>";
+                    // resultsHtml +=
+                    //     "<div>" +
+                    //     "<a href=" +
+                    //     link +
+                    //     ">" +
+                    //     response.items[i].name +
+                    //     "</a>" +
+                    //     "</div>" +
+                    //     "<a href=" +
+                    //     link +
+                    //     ">" +
+                    //     "<img src='" +
+                    //     defaultImage +
+                    //     "'/>" +
+                    //     "</a>";
                 }
                 // console.log("results.html:", resultsHtml);
-                $(".results-container").html(resultsHtml);
+                //$(".results-container").html(resultsHtml);
+                Handlebars.templates.artistsHB(responseHB);
                 // console.log("response.next", response.next);
-                nextUrl =
-                    response.next &&
-                    response.next.replace(
-                        "api.spotify.com/v1/search",
-                        "spicedify.herokuapp.com/spotify"
-                    );
+                newNextUrl(response.next);
                 // console.log("nexturl", nextUrl);
                 if (response.next) {
                     if (location.search.indexOf("?scroll=infinite") > -1) {
@@ -123,6 +124,13 @@
         }
     }
 
+    function newNextUrl (next) {
+        if (next)
+            next.replace(
+                "api.spotify.com/v1/search",
+                "spicedify.herokuapp.com/spotify"
+            );
+    }
     //more button:
     $(".moreButton").on("click", function () {
         // console.log("click button", $("button"));
@@ -158,14 +166,10 @@
                         "</a>";
                     $(".results-container").append(resultsHtml);
 
-                    nextUrl =
-                        response.next &&
-                        response.next.replace(
-                            "api.spotify.com/v1/search",
-                            "spicedify.herokuapp.com/spotify"
-                        );
+                    
                 }
             },
         });
     });
+  
 })(); //eileens iife
