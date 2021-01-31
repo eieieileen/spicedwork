@@ -25,7 +25,7 @@
 
                 for (var i = 0; i < response.items.length; i++) {
                     var defaultImage =
-                        "https://www.google.de/url?sa=i&url=https%3A%2F%2Fwww.bbc.com%2Fnews%2Fworld-europe-50247789&psig=AOvVaw3Lx9gqLeEWfg_0KfpKHzc6&ust=1611933895582000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjIq_f3vu4CFQAAAAAdAAAAABAD";
+                        "https://i.pinimg.com/originals/f1/96/e4/f196e47332e4156926d74f33ad9ff1f3.jpg";
                     if (response.items[i].images.length > 0) {
                         // console.log(response.items[i].images[0].url);
                         defaultImage = response.items[i].images[0].url;
@@ -39,14 +39,14 @@
                         ">" +
                         response.items[i].name +
                         "</a>" +
-                        "</div>" +
                         "<a href=" +
                         link +
                         ">" +
                         "<img src='" +
                         defaultImage +
                         "'/>" +
-                        "</a>";
+                        "</a>" +
+                        "</div>";
                 }
                 // console.log("results.html:", resultsHtml);
                 $(".results-container").html(resultsHtml);
