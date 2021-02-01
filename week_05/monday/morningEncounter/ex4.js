@@ -7,13 +7,13 @@ getNameAndCountry();
 
 
 
-// var getRelocatedCity = {
-//     city1: "Germany",
-//     city2: "Germany",
-//     function: getNameAndCountry(city2) {
-
-//     }
-// };
+var getRelocatedCity = {
+    city1: "Germany",
+    city2: "Germany",
+    function: getNameAndCountry(city2) {
+        return "Germy"
+    }
+};
 
 
 
