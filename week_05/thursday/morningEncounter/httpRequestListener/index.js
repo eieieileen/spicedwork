@@ -1,4 +1,6 @@
+const { fstat } = require("fs");
 const http = require("http");
+const fs = require("fs");
 
 const server = http.createServer((request, response) => {
     request.on("error", (err) => console.log(err));
@@ -43,6 +45,7 @@ const server = http.createServer((request, response) => {
         response.statusCode = 405;
         response.end();
     }
+    fs.appendFile("message.txt")
 
     // response.setHeader("content-type", "text/html");
     // response.write(body);
