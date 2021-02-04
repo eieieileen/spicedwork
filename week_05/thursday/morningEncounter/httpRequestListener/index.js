@@ -37,9 +37,11 @@ const server = http.createServer((request, response) => {
             });
         response.setHeader("Location", "/");
         response.statusCode = 302;
+        response.end();
     } 
     if (request.method != "GET" && "HEAD" && "POST") {
         response.statusCode = 405;
+        response.end();
     }
 
     // response.setHeader("content-type", "text/html");
