@@ -2,6 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const anotherModule = require("./anotherModule");
+
 console.log("anotherModule", anotherModule.projectOverviewList());
 const contentType = {
     ".css": "text/css",
@@ -27,9 +28,23 @@ http.createServer((req, res) => {
         return res.end();
     }
 
-    const requestedFilePath = path.normalize(
-        __dirname + "/projects" + req.url
-    );
+    if (req.url == "/") {
+        res.write(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    ${anotherModule.projectOverviewList()}
+</body>
+</html>`);
+        return res.end();
+    }
+
+    const requestedFilePath = path.normalize(__dirname + "/projects" + req.url);
     if (!requestedFilePath.startsWith(__dirname + "/projects")) {
         res.statusCode = 403;
         return res.end();
@@ -52,7 +67,7 @@ http.createServer((req, res) => {
 
             if (req.url.endsWith("/")) {
                 const readStreamHtml = fs.createReadStream(
-                    requestedFilePath + "/index.html"
+                    requestedFilePath + "index.html"
                 );
                 res.setHeader("Content-Type", "text/html");
                 readStreamHtml.pipe(res);
@@ -76,7 +91,10 @@ http.createServer((req, res) => {
                 "file ext of requested file is:",
                 path.extname(requestedFilePath)
             );
-            res.setHeader("Content-Type", contentType[path.extname(requestedFilePath)]); //we want to make this dynamic with either a function or const.css
+            res.setHeader(
+                "Content-Type",
+                contentType[path.extname(requestedFilePath)]
+            ); //we want to make this dynamic with either a function or const.css
             const readStreamFile = fs.createReadStream(requestedFilePath);
 
             readStreamFile.pipe(res);
