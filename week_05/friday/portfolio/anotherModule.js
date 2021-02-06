@@ -6,7 +6,11 @@ module.exports.projectOverviewList = function () {
     let html = "";
     for (var i = 0; i < list.length; i++) {
         
-        html += `<a href="${list[i]}">${list[i]}</a>`;
+        html += `
+        <div>
+        <a href="${list[i]}">${list[i]}</a>
+        </div>
+        `;
         
     }
     return html;
