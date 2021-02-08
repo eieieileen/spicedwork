@@ -1,0 +1,207 @@
+* {
+    margin: 0px;
+    padding: 1px;
+}
+
+body {
+    background-color: #dec9e9;
+}
+
+h2 {
+    font-size: 30px;
+    text-align: center;
+    color: #95d5b2;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#board {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 25px;
+    
+}
+
+.slot {
+    background-color: #cdb4db;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.hole {
+    /* background-color: darkslategrey; */
+    height: 80px;
+    width: 80px;
+    transform: translate(-30px, -30px);
+    border: 40px solid #e07a5f;
+    border-radius: 50%;
+}
+
+.player1 .hole {
+    background-color: #fb8b24;
+}
+
+.player2 .hole {
+    background-color: #ffc8dd;
+}
+
+.overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+    visibility: hidden;
+}
+
+.popUp {
+    width: 300px;
+    height: 220px;
+    z-index: 2;
+    background-color: lightgoldenrodyellow;
+    border: 5px solid lightseagreen;
+    color: mediumpurple;
+    top: 65px;
+    position: fixed;
+}
+
+.popUp p,
+h1 {
+    margin: 35px;
+    margin-top: 40px;
+}
+
+.popUp h3 {
+    margin: 35px;
+    margin-top: -25px;
+    color: #9d8189;
+}
+
+#x {
+    float: right;
+    font-size: 20px;
+    margin: 5px;
+    margin-right: 10px;
+}
+
+button {
+    margin-left: 125px;
+}
+
+#pic-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#plant1 {
+    width: 175px;
+    height: 300px;
+    position: fixed;
+    right: 165px;
+    bottom: 0px;
+    transform: translateX(30%);
+    visibility: hidden;
+    transition: 2s ease-in-out;
+    z-index: 3;
+}
+
+#plant2 {
+    width: 250px;
+    height: 250px;
+    position: fixed;
+    bottom: 70px;
+    right: 90px;
+    z-index: 3;
+    transition: 3s ease;
+    transform: rotate(190deg);
+    visibility: hidden;
+}
+
+#flyingG {
+    width: 357px;
+    height: 400px;
+    visibility: hidden;
+    transition: 2s ease;
+    transform: translateX(135%);
+    position: fixed;
+    bottom: 250px;
+    right: -15px;
+    z-index: 3;
+   
+}
+
+#pic-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#plant3 {
+    height: 300px;
+    position: fixed;
+    left: 18px;
+    bottom: 0px;
+    visibility: hidden;
+    z-index: 3;
+    transition: 3s ease-in-out;
+    transform: translateX(-50%);
+
+}
+
+#plant4 {
+    position: fixed;
+    top: 25px;
+    left: 270px;
+    height: 300px;
+    visibility: hidden;
+    z-index: 3;
+    transition: 3s ease;
+    transform: translateY(100%);
+}
+
+#skateboard {
+    height: 300px;
+    width: 200px;
+    position: fixed;
+    left: 5px;
+    bottom: 350px;
+    transform: rotate(360deg);
+    visibility: hidden;
+    transition: 3s ease-out;
+    z-index: 3;
+}
+
+#wheelie {
+    height: 300px;
+    width: 200px;
+    position: fixed;
+    left: 5px;
+    bottom: 0px;
+    transition: 3s ease-in;
+    transform: translateX(-300px);
+    visibility: hidden;
+    z-index: 3;
+}
+
+#standing {
+    height: 300px;
+    width: 300px;
+    align-self: flex-start;
+    transition: 3s ease;
+    transform: translateY(-500%);
+    /* visibility: hidden; */
+    position: fixed;
+    bottom: 100px;
+    z-index: 3;
+}
