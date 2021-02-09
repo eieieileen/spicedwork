@@ -22,7 +22,7 @@
                 q: userInput,
             },
             success: function (response) {
-                if (response[0].startsWith(userInput)) {
+                if (response == userInput) {
                     console.log("response!!:", response[0]);
                     var htmlForCountries = "";
                     for (var j = 0; j < response.length; j++) {

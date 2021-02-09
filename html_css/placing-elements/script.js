@@ -22,6 +22,8 @@
         overlay[0].classList.remove("on");
     });
 
+
+    
     //model dialog and JQ starting:
     var popUpX = $("#popUpX");
     // console.log("hier komt het kruisje :", popUpX);

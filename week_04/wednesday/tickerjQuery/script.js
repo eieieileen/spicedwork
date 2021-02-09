@@ -18,7 +18,7 @@
     // Window.on("load", function (){
     //     console.log("load links on: ");
     // });
-
+    
     $(document).ready(function () {
         console.log("documentready");
         var links = {
@@ -45,11 +45,14 @@
                     ticker.html(myLinks);
                 }
                 console.log(myLinks);
+                initialPositionJQ--;
             },
+
             error: function (err) {
                 console.log("error in ajax: ", err);
             },
         };
+
         $.ajax(links);
     });
 

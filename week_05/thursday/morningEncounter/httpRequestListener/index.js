@@ -1,6 +1,6 @@
-const { fstat } = require("fs");
+const fs  = require("fs");
 const http = require("http");
-const fs = require("fs");
+//const fs = require("fs");
 
 const server = http.createServer((request, response) => {
     request.on("error", (err) => console.log(err));
@@ -9,7 +9,7 @@ const server = http.createServer((request, response) => {
     //method will be a normal http method. url = everything after and including the third forward slaash.
     const { method, url } = request;
     const { headers } = request;
-    const userAgent = headers["user-agent"]; //importent that headers are represented in lower-case only.
+    const userAgent = headers["user-agent"]; //important that headers are represented in lower-case only.
 
     console.log(request.headers, request.method, request.url); // for each request log the method, url, and request headers to the console
 
@@ -45,11 +45,11 @@ const server = http.createServer((request, response) => {
         response.statusCode = 405;
         response.end();
     }
-    fs.appendFile("message.txt")
+    fs.appendFile("message.txt", `${Date()}\t${request.method}\t${request.url}\t${request.header[user-agent]}`);
 
     // response.setHeader("content-type", "text/html");
     // response.write(body);
     // response.end();
 });
 
-server.listen(8080, () => console.log(`Whaddup Ei im listening`));
+server.listen(8080, () => console.log("Whaddup Ei im listening"));

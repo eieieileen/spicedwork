@@ -24,7 +24,7 @@ function switchPlayer() {
             "background-color": "#ffc779",
             transition: "1s ease-in-out",
         });
-        
+
         //color pink
     } else {
         currentPlayer = "player1";
@@ -33,7 +33,6 @@ function switchPlayer() {
             "background-color": "#ffe0e9",
             transition: "1s ease-in-out",
         });
-
     }
 }
 // console.log("currentPlayer before call", currentPlayer);
@@ -164,6 +163,7 @@ function checkForDiags(slots) {
             slots.eq(diags[j][2]).hasClass(currentPlayer) &&
             slots.eq(diags[j][3]).hasClass(currentPlayer)
         ) {
+            // looping through array and checks of de balletjes de zelfde waarden hebben als die in de array.
             console.log(currentPlayer + "won");
             overlay.eq(0).css({ visibility: "visible" });
             flying.eq(0).css({

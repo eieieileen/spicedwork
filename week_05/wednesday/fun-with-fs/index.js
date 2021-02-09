@@ -1,7 +1,5 @@
 const fs = require("fs");
 
-logSizes(__dirname + "/files");
-
 function logSizes(path) {
     fs.readdir(path, { withFileTypes: true }, function (err, items) {
         if (err) {
@@ -30,3 +28,5 @@ function logSizes(path) {
         );
     });
 }
+
+logSizes(__dirname + "/files");
