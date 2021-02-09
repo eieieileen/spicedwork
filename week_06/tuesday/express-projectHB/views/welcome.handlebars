@@ -2,11 +2,15 @@
 
 <h2>Here a list with projecten die ze heeft gdn</h2>
 
-<div>
-    <ul>
+<div class="container">
+   
+    
       {{#projects}}
-      <img src="/{{directory}}/screenshot.png">
-         <li>{{project}}</li>
+    <div>
+      <img src="/{{directory}}/screenshot.jpg">
+         <p>{{project}}</p>
+    </div>
       {{/projects}}
-    </ul>
+  
+    
 </div>

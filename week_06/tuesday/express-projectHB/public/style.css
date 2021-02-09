@@ -1,3 +1,16 @@
 * {
     background-color: lavenderblush;
 }
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    border: 1px black solid;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
