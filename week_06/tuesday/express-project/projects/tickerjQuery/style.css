@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    background-color: chocolate;
+}
+
+body {
+    margin: 0;
+}
+
+#headlines {
+    white-space: nowrap;
+    position: absolute;
+    top: 0;
+    left: 100%;
+}
+
+#headlines a {
+    padding-right: 35px;;
+}
+
+#Ticker {
+    position: relative;
+    border: 5px solid green;
+    overflow: hidden;
+    height: 1.7em;
+    font-size: 20px;
+}
+
+a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+}
