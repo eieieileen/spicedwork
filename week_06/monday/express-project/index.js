@@ -1,6 +1,22 @@
 const express = require("express"); // importing the function
 const app = express(); //calling it
 const cookieParser = require("cookie-parser");
+const basicAuth = require("basic-auth");
+
+const auth = function (req, res, next) {
+    const creds = basicAuth(req);
+    if (!creds || creds.name != "discoduck" || creds.pass != "opensesame") {
+        res.setHeader(
+            "WWW-Authenticate",
+            'Basic realm="Enter your credentials to see this stuff."'
+        );
+        res.sendStatus(401);
+    } else {
+        next();
+    }
+};
+
+app.use("/connect4/", auth);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser()); // creates a key value pair obj
@@ -11,12 +27,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// Create a /cookie route that responds to GET requests XX
-// with a page that warns users XX
-// that to use this site they must accept cookies. XX
-// The page should have a checkbox for users to indicate
-// that they accept the cookie policy and a button to submit.
-// When users click on the button, a POST to /cookie should occur.
 
 //HOMEPAGE
 app.get("/cookie", (req, res) => {
@@ -32,7 +42,7 @@ app.get("/cookie", (req, res) => {
     
     <h2>🍪However, to see all the projects you have to accept the cookies!🍪</h2>
 
-    <p>To accept the 🍪🍪🍪 click the checkbox and submit 💥</p> 
+    <p>To accept the 🍪🍪🍪, click the checkbox and submit 💥</p> 
 
     <form method="POST">
     
@@ -52,6 +62,7 @@ app.get("/cookie", (req, res) => {
     }
 });
 // <input type="submit" value="🍪 SUBMIT 🍪">
+
 
 //POST HOMEPAGE
 app.post("/cookie", (req, res) => {
@@ -89,7 +100,7 @@ app.get("/cookieaccept", (req, res) => {
     
     <h2>🍪I'm pretty sure you won't regret it!🍪</h2>
 
-    <p>To accept the 🍪🍪🍪 click the checkbox and submit 💥</p> 
+    <p>To accept the 🍪🍪🍪, click the checkbox and submit 💥</p> 
 
     <form method="POST">
     
@@ -124,5 +135,13 @@ app.post("/cookieaccept", (req, res) => {
         console.log("a ${req.method} request was made to the ${req.url} route");
     }
 });
+
+
+
+
+
+    
+
+
 
 app.listen(8080, () => console.log("Listening to my boss Eileen 🦁"));
