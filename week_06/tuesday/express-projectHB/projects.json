@@ -1,0 +1,16 @@
+[
+    {
+        "project": "connect4",
+        "directory": "Connect4"
+    },
+
+    {
+        "project": "spotifySearch",
+        "directory": "pspotifySearch"
+    },
+
+    {
+        "project": "ticker",
+        "directory": "tickerjQuery"
+    }
+]
