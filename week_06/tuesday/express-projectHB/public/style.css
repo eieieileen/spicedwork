@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    border: 1px black solid;
+    border: 3px black solid;
 }
 
 img {
