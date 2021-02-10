@@ -17,13 +17,7 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/project/:project", (req, res) => {
-    const { project } = req.params;
-    console.log("req.params:", req.params);
-    const selectedProject = projects.find((item) => item.project == project);
-    if (!selectedProject) {
-        return res.sendStatus(404);
-    }
-});
+app.get("/projects/:project", (req, res) =>
+)
 
 app.listen(8080, () => console.log("👸 Listening to my queen Eileen 👸"));

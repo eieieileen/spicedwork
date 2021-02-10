@@ -1,16 +1,19 @@
 [
     {
         "project": "connect4",
-        "directory": "Connect4"
+        "directory": "Connect4",
+        "discription": "Connect four is a classis game that I tried making more fun. After each victory there is a victory party to celebrate with you."
     },
 
     {
         "project": "spotifySearch",
-        "directory": "spotifySearch"
+        "directory": "spotifySearch",
+         "discription": "Helps you to find your favourite artists in style."
     },
 
     {
         "project": "ticker",
-        "directory": "tickerjQuery"
+        "directory": "tickerjQuery",
+         "discription": "Chocolate background coloured Ticker with flashy news articles."
     }
 ]
