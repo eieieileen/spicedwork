@@ -26,7 +26,8 @@ app.get("/projects/:project", (req, res) => {
     console.log("req.params:", req.params);
     res.render("description", {
         layout: "main",
-        projects
+        projects,
+        selectedProject
     });
 });
 
