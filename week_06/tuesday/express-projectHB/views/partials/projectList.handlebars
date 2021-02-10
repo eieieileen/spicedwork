@@ -1,15 +1,14 @@
-<div> 
+
     {{#projects}}
-        <span>
+        <div>
             {{#if ../welcome}}
-        <a href="/projects/{{directory}}">
+        <a href="/projects/{{directory}}" target="_blank">
       <img src="/{{directory}}/screenshot.jpg">
       </a>
              {{/if}}
 
-      <a href="/projects/{{directory}}">
+      <a href="/projects/{{directory}}" target="_blank">
          <p>{{project}}</p>
          </a>
-        </span>
+        </div>
     {{/projects}}
-</div>  

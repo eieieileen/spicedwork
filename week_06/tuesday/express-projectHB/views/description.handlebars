@@ -1,10 +1,13 @@
+<div class="container">
 <h1>This is {{selectedProject.project}}</h1>
+
 
 {{>projectList}}
 
 <p>{{selectedProject.description}}</p>
 
- <img src="/{{selectedProject.directory}}/screenshot.jpg">
+ <img id="imgD" src="/{{selectedProject.directory}}/screenshotD.jpg">
+ </div>
       {{!-- {{#projects}}
     <div>
         <a href="/{{directory}}">

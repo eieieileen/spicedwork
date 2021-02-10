@@ -2,15 +2,52 @@
     background-color: lavenderblush;
 }
 
-.container {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    border: 3px black solid;
-}
-
 img {
     width: 300px;
     height: 300px;
-    object-fit: contain;
+    object-fit: cover;
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.77);
+}
+
+.h1Main {
+    width: 100%;
+    /* border: 3px black solid; */
+    display: flex;
+    justify-content: center; 
+}
+
+.h2Main {
+      width: 100%;
+    /* border: 3px pink solid; */
+    display: flex;
+    justify-content: center; 
+}
+
+.middle {
+   /* border: 3px purple solid; */
+   width: 100%;
+   flex-direction: row;
+   flex-wrap: wrap;
+   display: flex;
+    justify-content: space-evenly;
+   margin-top: 100px;
+  
+
+}
+
+.middle p {
+    color: black;
+    justify-content: center;
+    text-align: center;
+    font-size: large;
+}
+
+footer {
+    bottom: 0;
+    position: absolute;
+    margin: 3px;
+}
+
+a {
+    text-decoration: none;
 }

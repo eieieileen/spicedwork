@@ -28,11 +28,11 @@ app.get("/projects/:project", (req, res) => {
         layout: "main",
         projects,
         selectedProject,
-        helpers: {
-            exclaim:(text) {
-                return text + "!!!!!!!!!!!";
-            }
-        }
+        //     helpers: {
+        //         exclaim:(text) {
+        //             return text + "!!!!!!!!!!!";
+        //         }
+        //     }
     });
 });
 
