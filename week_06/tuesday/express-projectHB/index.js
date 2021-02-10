@@ -14,11 +14,12 @@ app.get("/", (req, res) => {
         layout: "main",
         projects,
     });
+    // res.redirect("/projects/:project");
 });
 
 app.get("/projects/:project", (req, res) => {
     const { project } = req.params;
-    const selectedProject = projects.find((item) => item.project == project);
+    const selectedProject = projects.find((item) => item.directory == project);
     if (!selectedProject) {
         return res.sendStatus(404);
     }
