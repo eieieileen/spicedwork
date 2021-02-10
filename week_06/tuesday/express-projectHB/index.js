@@ -13,8 +13,17 @@ app.get("/", (req, res) => {
     res.render("welcome", {
         layout: "main",
         cohort: "Fennel",
-        projects
+        projects,
     });
+});
+
+app.get("/project/:project", (req, res) => {
+    const { project } = req.params;
+    console.log("req.params:", req.params);
+    const selectedProject = projects.find((item) => item.project == project);
+    if (!selectedProject) {
+        return res.sendStatus(404);
+    }
 });
 
 app.listen(8080, () => console.log("👸 Listening to my queen Eileen 👸"));
