@@ -1,13 +1,14 @@
-<div class="container">
+<div class="h1Main">
 <h1>This is {{selectedProject.project}}</h1>
+ </div>
 
 
 {{>projectList}}
 
+<div id="imgText">
+<img id="imgD" src="/{{selectedProject.directory}}/screenshotD.jpg">
 <p>{{selectedProject.description}}</p>
-
- <img id="imgD" src="/{{selectedProject.directory}}/screenshotD.jpg">
- </div>
+</div>
       {{!-- {{#projects}}
     <div>
         <a href="/{{directory}}">
