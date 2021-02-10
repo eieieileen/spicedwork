@@ -27,7 +27,12 @@ app.get("/projects/:project", (req, res) => {
     res.render("description", {
         layout: "main",
         projects,
-        selectedProject
+        selectedProject,
+        helpers: {
+            exclaim:(text) {
+                return text + "!!!!!!!!!!!";
+            }
+        }
     });
 });
 
