@@ -1,10 +1,10 @@
-const {twitterKey, twitterSecrets} = require("./secrets");
+const { twitterKey, twitterSecret } = require("./secrets");
 const https = require("https");
 
 module.exports.getToken = function getToken(callbackToken) {
     console.log("running getToken");
 
-    let credentials = `${twitterKey}:${twitterSecrets}`;
+    let credentials = `${twitterKey}:${twitterSecret}`;
     let encodedCredentials = Buffer.from(credentials).toString("base64");
 
     const options = {
@@ -13,8 +13,8 @@ module.exports.getToken = function getToken(callbackToken) {
         method: "POST",
         headers: {
             Authorization: `Basic ${encodedCredentials}`,
-            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
-        }
+            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
     };
 
     function reqCallback(response) {
@@ -40,10 +40,20 @@ module.exports.getToken = function getToken(callbackToken) {
 module.exports.getTweets = function getTweets(bearerToken, callbackTweets) {
     console.log("running getToken inside th callback of getToken in index.js");
     //this function will get tweets from the twitter api
-    //this is also for me to complete 
+    //this is also for me to complete
     const options = {
-        
-    }
+        host: "api.twitter.com",
+        path:
+            "/1.1/statuses/user_timeline.json?screen_name=nytimes&tweet_mode=extended",
+        method: "GET",
+        headers: {
+            Authorization: `Bearer ${bearerToken}`,
+        },
+    };
+    const req = https.request(options, callbackTweets);
+    console.log("rekkie: ", req);
+    req.end("grant_type=client:credentials");
+
 };
 
 module.exports.filterTweets = function filterTweets(tweets) {
