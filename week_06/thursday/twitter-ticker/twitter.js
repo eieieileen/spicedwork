@@ -27,21 +27,22 @@ module.exports.getToken = function getToken(callbackToken) {
             body += chunk;
         });
         response.on("end", () => {
-            console.log("bodybodybody:", body);
+            // console.log("bodybodybody:", body);
             let parsedBody = JSON.parse(body);
             console.log("parsedBodybodybody", parsedBody.access_token);
+            callbackToken(null, parsedBody.access_token);
         });
     }
 
     const req = https.request(options, reqCallback);
-    req.end("grant_type=client:credentials");
+    req.end("grant_type=client_credentials");
 };
 
 module.exports.getTweets = function getTweets(bearerToken, callbackTweets) {
     console.log("running getToken inside th callback of getToken in index.js");
     //this function will get tweets from the twitter api
     //this is also for me to complete
-    const options = {
+    const getTweetsOpt = {
         host: "api.twitter.com",
         path:
             "/1.1/statuses/user_timeline.json?screen_name=nytimes&tweet_mode=extended",
@@ -50,10 +51,26 @@ module.exports.getTweets = function getTweets(bearerToken, callbackTweets) {
             Authorization: `Bearer ${bearerToken}`,
         },
     };
-    const req = https.request(options, callbackTweets);
-    console.log("rekkie: ", req);
-    req.end("grant_type=client:credentials");
 
+    function reqTweetsCallback(response) {
+        if (response.statusCode != 200) {
+            callbackTweets(response.statusCode);
+            return;
+        }
+        let body = "";
+        response.on("data", (chunk) => {
+            body += chunk;
+        });
+        response.on("end", () => {
+            // console.log("bodybodybody:", body);
+            let parsedTweet = JSON.parse(body);
+            callbackTweets(null, parsedTweet);
+        });
+    }
+
+    const req = https.request(getTweetsOpt, reqTweetsCallback);
+    console.log("rekkie: ", req);
+    req.end("grant_type=client_credentials");
 };
 
 module.exports.filterTweets = function filterTweets(tweets) {
