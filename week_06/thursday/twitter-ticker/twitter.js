@@ -39,7 +39,7 @@ module.exports.getToken = function getToken(callbackToken) {
 };
 
 module.exports.getTweets = function getTweets(bearerToken, callbackTweets) {
-    console.log("running getToken inside th callback of getToken in index.js");
+    //console.log("running getToken inside th callback of getToken in index.js");
     //this function will get tweets from the twitter api
     //this is also for me to complete
     const getTweetsOpt = {
@@ -69,11 +69,21 @@ module.exports.getTweets = function getTweets(bearerToken, callbackTweets) {
     }
 
     const req = https.request(getTweetsOpt, reqTweetsCallback);
-    console.log("rekkie: ", req);
+    //console.log("rekkie: ", req);
     req.end("grant_type=client_credentials");
 };
 
 module.exports.filterTweets = function filterTweets(tweets) {
+    let arr = [];
+    for (var i = 0; i < tweets.length; i++) {
+        if (tweets[i].entities.urls[0] && !tweets[i].entities.urls[1] && !tweets[i].entities.media) {
+            console.log("Dit zijn alleen de tekst tweets: ", tweets[i].full_text);
+            arr.push({
+                link: tweets[i].entities.urls[0].url,
+                alt: tweets[i].full_text
+            });    
+        }
+    }  return arr;
     //this function will clean up (filter) our tweet response from the twiiter api
     //this is also for me to complete.
 };
