@@ -1,7 +1,6 @@
 const { twitterKey, twitterSecret } = require("./secrets");
 const https = require("https");
 
-
 module.exports.getToken = function getToken(callbackToken) {
     console.log("running getToken");
 
@@ -77,14 +76,19 @@ module.exports.getTweets = function getTweets(bearerToken, callbackTweets) {
 module.exports.filterTweets = function filterTweets(tweets) {
     let arr = [];
     for (var i = 0; i < tweets.length; i++) {
-        if (tweets[i].entities.urls[0] && !tweets[i].entities.urls[1] && !tweets[i].entities.media) {
-            console.log("Dit zijn alleen de tekst tweets: ", tweets[i].full_text);
+        if (
+            tweets[i].entities.urls[0] &&
+            !tweets[i].entities.urls[1] &&
+            !tweets[i].entities.media
+        ) {
+            // console.log("Dit zijn alleen de tekst tweets: ", tweets[i].full_text);
             arr.push({
                 link: tweets[i].entities.urls[0].url,
-                alt: tweets[i].full_text
-            });    
+                alt: tweets[i].full_text,
+            });
         }
-    }  return arr;
+    }
+    return arr;
     //this function will clean up (filter) our tweet response from the twiiter api
     //this is also for me to complete.
 };
