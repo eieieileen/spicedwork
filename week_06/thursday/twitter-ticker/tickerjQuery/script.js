@@ -40,7 +40,7 @@
                         getLinks[i].link +
                         ">" +
                         "" +
-                        getLinks[i].alt +
+                        getLinks[i].alt + " Source: " + getLinks[i].source +
                         "</a>";
                     ticker.html(myLinks);
                 }

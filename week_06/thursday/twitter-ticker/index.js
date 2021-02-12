@@ -11,22 +11,35 @@ app.use(express.static("./tickerjQuery"));
 app.get("/data.json", (req, res) => {
     getTokenPromisify()
         .then((bearerToken) => {
-            getTweetsPromisify(bearerToken)
-                .then((tweets) => {
-                    const filteredTweets = filterTweets(tweets);
+            return Promise.all([
+                getTweetsPromisify(bearerToken, "nytimes"),
+                getTweetsPromisify(bearerToken, "bbcworld"),
+                getTweetsPromisify(bearerToken, "theonion"),
+            ]).then((tweets) => {
+                const nyTweets = tweets[0];
+                const bbcTweets = tweets[1];
+                const onionTweets = tweets[2];
 
-                    res.json(filteredTweets);
-                })
-                .catch((err) => {
-                    console.log("Now an error in getTweets my Love", err);
+                const mergedTweets = [
+                    ...nyTweets,
+                    ...bbcTweets,
+                    ...onionTweets,
+                ];
+                const sortedTweets = mergedTweets.sort((a, b) => {
+                    return new Date(b.created_at) - new Date(a.created_at);
                 });
+                const filteredTweets = filterTweets(sortedTweets);
+                res.json(filteredTweets);
+            });
+        })
+        .catch((err) => {
+            console.log("err in Promise.all :(", err);
+            res.sendStatus(500);
         })
         .catch((err) => {
             console.log("error in getToken, my Queen", err);
             res.sendStatus(500);
         });
-
-   
 });
 
 app.listen(8080, () => console.log("🌻 You look fabulous my queen ✨"));

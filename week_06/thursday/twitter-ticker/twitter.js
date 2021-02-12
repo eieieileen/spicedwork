@@ -38,14 +38,14 @@ module.exports.getToken = function getToken(callbackToken) {
     req.end("grant_type=client_credentials");
 };
 
-module.exports.getTweets = function getTweets(bearerToken, callbackTweets) {
+module.exports.getTweets = function getTweets(bearerToken, newsSource, callbackTweets) {
     //console.log("running getToken inside th callback of getToken in index.js");
     //this function will get tweets from the twitter api
     //this is also for me to complete
     const getTweetsOpt = {
         host: "api.twitter.com",
         path:
-            "/1.1/statuses/user_timeline.json?screen_name=nytimes&tweet_mode=extended",
+            `/1.1/statuses/user_timeline.json?screen_name=${newsSource}&tweet_mode=extended`,
         method: "GET",
         headers: {
             Authorization: `Bearer ${bearerToken}`,
@@ -85,6 +85,7 @@ module.exports.filterTweets = function filterTweets(tweets) {
             arr.push({
                 link: tweets[i].entities.urls[0].url,
                 alt: tweets[i].full_text,
+                source: tweets[i].user.name,
             });
         }
     }
