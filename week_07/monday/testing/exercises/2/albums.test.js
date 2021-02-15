@@ -1,10 +1,10 @@
-// const { getAlbumNames } = require("./albums");
-// const spotify = require("./spotify");
+const { getAlbumNames } = require("./albums");
+const spotify = require("./spotify");
 
-// jest.mock("./spotify");
+jest.mock("./spotify");
 
-// test("album names are in alphabetical order", () => {
-//     return getAlbumNames("meat loaf").then((albumNames) => {
-//         expect(albumNames).toEqual(albumNames.slice().sort());
-//     });
-// });
+test("album names are in alphabetical order", () => {
+    return getAlbumNames("meat loaf").then((albumNames) => {
+        expect(albumNames).toEqual(albumNames.slice().sort());
+    });
+});
